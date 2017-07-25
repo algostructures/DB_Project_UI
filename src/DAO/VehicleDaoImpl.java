@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,14 +25,16 @@ public class VehicleDaoImpl implements VehicleDao {
             ps = con.prepareStatement(sql);
             ps.execute();
             rs = ps.getResultSet();
-
+            vehicleList = new ArrayList<Vehicle>();
             while(rs.next()){
                 Vehicle vehicle = new Vehicle(rs.getString("vehicle_model"), rs.getInt("units"), rs.getDouble("price"), rs.getDouble("tax"));
                 vehicleList.add(vehicle);
             }
+            //System.out.println(vehicleList.size()+"in try");
             return vehicleList;
         } catch(SQLException e){
-            System.out.println("OOPs error occured in connecting database " + e.getMessage());
+            System.out.println("OOPs error occured in connecting database" + e.getMessage());
+            //System.out.println(vehicleList.size()+"in catch");
             return null;
         }
         finally {

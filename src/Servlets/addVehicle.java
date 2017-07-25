@@ -19,19 +19,17 @@ import java.util.Date;
 /**
  * Created by prajapas on 7/24/2017.
  */
-@WebServlet(name = "AddSpare")
-public class AddSpare extends HttpServlet {
+@WebServlet(name = "addVehicle")
+public class addVehicle extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
+
         OrderDaoImpl od = new OrderDaoImpl();
         HttpSession ssn = request.getSession();
         String username = (String) ssn.getAttribute("username");
         String oId = request.getParameter("oid");
         System.out.println(oId);
         String vm = request.getParameter("vm");
-        String spi = request.getParameter("spi");
-        String spn = request.getParameter("spn");
         String op = "add";
         int num = Integer.parseInt(request.getParameter("units"));
         double pr = Double.parseDouble(request.getParameter("price"));
@@ -40,8 +38,8 @@ public class AddSpare extends HttpServlet {
         Date date = null;
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(dt);
-            od.placeOrder(new Orders(username, oId, vm, spi, spn, op, num, pr, tax, date));
-            RequestDispatcher rd = request.getRequestDispatcher("pages/ViewSpareParts.jsp");
+            od.placeOrder(new Orders(username, oId, vm, "", "", op, num, pr, tax, date));
+            RequestDispatcher rd = request.getRequestDispatcher("pages/ViewVehicle.jsp");
             rd.forward(request, response);
             System.out.println("after dispacher");
         } catch (ParseException e) {
@@ -53,5 +51,4 @@ public class AddSpare extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
 }
