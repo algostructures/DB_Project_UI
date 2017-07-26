@@ -25,11 +25,20 @@
         </div>
         <ul class='nav navbar-nav'>
             <li class='active'><a href='pages/Home.jsp'><span class= " glyphicon glyphicon-home" aria-hidden = "true"></span> Home</a></li>
-            <li><a href='#'><span class= "glyphicon glyphicon-user" aria-hidden = "true"></span> Operators</a></li>
+            <li><a href='pages/ViewOperator.jsp'><span class= "glyphicon glyphicon-user" aria-hidden = "true"></span> Operators</a></li>
             <li><a href='pages/ViewVehicle.jsp'><i class="fa fa-car" aria-hidden="true"></i> Vehicle</a></li>
             <li><a href='pages/ViewSpareParts.jsp'><i class="fa fa-wrench" aria-hidden="true"></i> SpareParts</a></li>
             <li><a href='#'><i class="fa fa-list-alt" aria-hidden="true"></i> Orders</a></li>
-            <li><a href='#'><i class="fa fa-address-book" aria-hidden="true"></i> About</a></li>
+            <li><a href='pages/ViewService.jsp'><i class="fa fa-address-book" aria-hidden="true"></i> Service</a></li>
+            <li><a href='pages/AboutUs.jsp'><i class="fa fa-address-book" aria-hidden="true"></i> About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a id="login-link">
+                <i class="fa fa-id-badge" aria-hidden="true"></i><%=session.getAttribute("username")%></a>
+            </li>
+            <li><a id="logout-link">
+                <span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+            </li>
         </ul>
     </div>
 </nav>

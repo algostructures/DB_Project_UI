@@ -107,7 +107,7 @@ public class OrderDaoImpl implements OrderDao {
             ps.setString(5, order.getDate());
             ps.setString(10, order.getSparePartName());
             ps.executeUpdate();
-            if(order.getSparePartId().equals("null")){
+            if(order.getSparePartId().length()==0){
                 Vehicle vehicle = new Vehicle(order.getVehicleModel(), order.getNumbers(), order.getPrice(), order.getTax());
                 VehicleDaoImpl vd = new VehicleDaoImpl();
                 vd.addVehicle(vehicle);

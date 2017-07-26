@@ -35,6 +35,11 @@
             </ul>
         </ul>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a id="login-link">
+            <span class="glyphicon glyphicon-log-in"></span> <%=session.getAttribute("username")%></a>
+        </li>
+    </ul>
 </nav>
 <div class="row">
     <div class="col-sm-2">

@@ -4,14 +4,6 @@
            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
            version="3.0">
-    <servlet>
-        <servlet-name>Welcome</servlet-name>
-        <servlet-class>Servlets.Welcome</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Welcome</servlet-name>
-        <url-pattern>/Welcome</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>AddSpare</servlet-name>
@@ -21,14 +13,39 @@
         <servlet-name>AddSpare</servlet-name>
         <url-pattern>/AddSpare</url-pattern>
     </servlet-mapping>
-
     <servlet>
-        <servlet-name>getSpareParts</servlet-name>
-        <servlet-class>Servlets.getSpareParts</servlet-class>
+        <servlet-name>addVehicle</servlet-name>
+        <servlet-class>Servlets.addVehicle</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>getSpareParts</servlet-name>
-        <url-pattern>/getSpareParts</url-pattern>
+        <servlet-name>addVehicle</servlet-name>
+        <url-pattern>/addVehicle</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddService</servlet-name>
+        <servlet-class>Servlets.AddService</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddService</servlet-name>
+        <url-pattern>/AddService</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddOperator</servlet-name>
+        <servlet-class>Servlets.AddOperator</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddOperator</servlet-name>
+        <url-pattern>/AddOperator</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BlockOperator</servlet-name>
+        <servlet-class>Servlets.BlockOperator</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlockOperator</servlet-name>
+        <url-pattern>/BlockOperator</url-pattern>
     </servlet-mapping>
 
 </web-app>

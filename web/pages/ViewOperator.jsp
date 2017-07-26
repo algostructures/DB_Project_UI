@@ -1,10 +1,10 @@
-<%@ page import="DAO.VehicleDaoImpl" %>
-<%@ page import="entities.Vehicle" %>
+<%@ page import="DAO.OperatorDaoImpl" %>
+<%@ page import="entities.Operator" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: prajapas
-  Date: 7/24/2017
-  Time: 9:54 PM
+  Date: 7/25/2017
+  Time: 4:40 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,18 +19,26 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<%
+    request.getSession(false);
+    if(session == null){
+        response.sendRedirect("index.jsp");
+    }
+%>
 <nav class='navbar navbar-inverse navbar-fixed'>
     <div class='container-fluid'>
         <div class='navbar-header'>
             <a class='navbar-brand' href='#'>DMS</a>
         </div>
         <ul class='nav navbar-nav'>
-            <li class='active'><a href='Home.jsp'><span class= "glyphicon glyphicon-home" aria-hidden = "true"></span> Home</a></li>
-            <li><a href='#'><span class= "glyphicon glyphicon-user" aria-hidden = "true"></span> Operators</a></li>
-            <li><a href='ViewVehicle.jsp'><i class="fa fa-car" aria-hidden="true"></i> Vehicle</a></li>
-            <li><a href='ViewSpareParts.jsp'><i class="fa fa-wrench" aria-hidden="true"></i> SpareParts</a></li>
-            <li><a href='#'><i class="fa fa-list-alt" aria-hidden="true"></i> Orders</a></li>
-            <li><a href='#'><i class="fa fa-address-book" aria-hidden="true"></i> About</a></li>
+            <ul class='nav navbar-nav'>
+                <li class='active'><a href='Home.jsp'><span class= "glyphicon glyphicon-home" aria-hidden = "true"></span> Home</a></li>
+                <li><a href='#'><span class= "glyphicon glyphicon-user" aria-hidden = "true"></span> Operators</a></li>
+                <li><a href='ViewVehicle.jsp'><i class="fa fa-car" aria-hidden="true"></i> Vehicle</a></li>
+                <li><a href='ViewSpareParts.jsp'><i class="fa fa-wrench" aria-hidden="true"></i> SpareParts</a></li>
+                <li><a href='#'><i class="fa fa-list-alt" aria-hidden="true"></i> Orders</a></li>
+                <li><a href='#'><i class="fa fa-address-book" aria-hidden="true"></i> About</a></li>
+            </ul>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a id="login-link">
@@ -42,9 +50,9 @@
 <div class="row">
     <div class="col-sm-2">
         <ul class="nav nav-pills nav-stacked">
-            <li class = 'active '><a href='ViewVehicle.jsp'><i class="fa fa-wpforms" aria-hidden="true"></i> View</a></li>
-            <li><a href='AddVehicle.jsp'><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
-            <li><a href='#'><i class="fa fa-minus" aria-hidden="true"></i> Remove</a></li>
+            <li class='active'><a href='ViewOperator.jsp'><i class="fa fa-wpforms" aria-hidden="true"></i> View</a></li>
+            <li><a href='AddOperator.jsp'><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
+            <li><a href='BlockOperator.jsp'><i class="fa fa-ban" aria-hidden="true"></i> Remove</a></li>
         </ul>
     </div>
     <div class = "col-sm-8">
@@ -52,24 +60,22 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Vehicle Model</th>
-                <th>Price</th>
-                <th>Tax</th>
-                <th>Units</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Blocked</th>
             </tr>
             </thead>
             <tbody>
             <%
-                VehicleDaoImpl vh = new VehicleDaoImpl();
-                List<Vehicle> ar =  vh.getAllVehicles();
+                OperatorDaoImpl op = new OperatorDaoImpl();
+                List<Operator> ar =  op.getAllOperators();
                 int i = 0;
-                for(Vehicle vehicle : ar) {
+                for(Operator operator : ar) {
             %><tr>
                 <td> <%out.print((++i));%> </td>
-                <td> <%out.print(vehicle.getVehicle_model());%> </td>
-                <td> <%out.print(vehicle.getPrice());%> </td>
-                <td> <%out.print(vehicle.getTax());%> </td>
-                <td> <%out.print(vehicle.getNumber());%> </td>
+                <td> <%out.print(operator.getUserName());%> </td>
+                <td> <%out.print(operator.getPassword());%> </td>
+                <td> <%out.print(operator.isBlocked());%></td>
             </tr><%
                 }
             %>

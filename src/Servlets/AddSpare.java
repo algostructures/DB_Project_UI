@@ -41,15 +41,11 @@ public class AddSpare extends HttpServlet {
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(dt);
             od.placeOrder(new Orders(username, oId, vm, spi, spn, op, num, pr, tax, date));
-            RequestDispatcher rd = request.getRequestDispatcher("pages/ViewSpareParts.jsp");
-            rd.forward(request, response);
-            System.out.println("after dispacher");
+            response.sendRedirect("pages/ViewSpareParts.jsp");
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

@@ -1,6 +1,7 @@
 <%@ page import="DAO.SparePartsDaoImpl" %>
 <%@ page import="entities.SpareParts" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: prajapas
   Date: 7/24/2017
@@ -16,7 +17,16 @@
     <script src="https://use.fontawesome.com/9d0c2e3dbb.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <link rel='stylesheet prefetch' href='https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css'>
     <link rel="stylesheet" href="../css/style.css">
+    <script>
+        $(document).ready(function() {
+        $('#pagein').DataTable();
+    });
+    </script>
 </head>
 <body>
 <nav class='navbar navbar-inverse navbar-fixed'>
@@ -34,6 +44,11 @@
                 <li><a href='#'><i class="fa fa-address-book" aria-hidden="true"></i> About</a></li>
             </ul>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a id="login-link">
+                <span class="glyphicon glyphicon-log-in"></span> <%=session.getAttribute("username")%></a>
+            </li>
+        </ul>
     </div>
 </nav>
 <div class="row">
@@ -45,7 +60,7 @@
         </ul>
     </div>
     <div class = "col-sm-8">
-        <table class="table table-striped">
+        <table id = "pagein" class="table table-striped">
             <thead>
                 <tr>
                     <th>#</th>
@@ -72,7 +87,6 @@
                         <td> <%out.print(parts.getTax());%> </td>
                         <td> <%out.print(parts.getNumbers());%> </td>
                     </tr><%
-
                 }
             %>
             </tbody>

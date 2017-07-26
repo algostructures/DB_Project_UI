@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: prajapas
-  Date: 7/24/2017
-  Time: 9:40 PM
+  Date: 7/25/2017
+  Time: 4:40 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -42,51 +42,22 @@
 <div class="row">
     <div class="col-sm-2">
         <ul class="nav nav-pills nav-stacked">
-            <li><a href='ViewVehicle.jsp'><i class="fa fa-wpforms" aria-hidden="true"></i> View</a></li>
-            <li class = 'active'><a href='AddVehicle.jsp'><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
-            <li><a href='#'><i class="fa fa-minus" aria-hidden="true"></i> Remove</a></li>
+            <li><a href='ViewOperator.jsp'><i class="fa fa-wpforms" aria-hidden="true"></i> View</a></li>
+            <li><a href='AddOperator.jsp'><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
+            <li class="active"><a href='BlockOperator.jsp'><i class="fa fa-ban" aria-hidden="true"></i> Remove</a></li>
         </ul>
     </div>
     <div class = "col-sm-8">
-        <form action="../addVehicle" method="post">
+        <form action="blockOperator" method="post">
             <div class = "form-group row">
-                <label for="OrderID" class="col-sm-2 col-form-label">Order ID</label>
+                <label for="username" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
-                    <input class="form-control"  type="text"  id="OrderID" name="oid">
-                </div>
-            </div>
-            <div class = "form-group row">
-                <label for="Vehicle_Model" class="col-sm-2 col-form-label">Vehicle Model</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="text" id="Vehicle_Model" name="vm">
-                </div>
-            </div>
-            <div class = "form-group row">
-                <label for="Units" class="col-sm-2 col-form-label">Units</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="number" value="0" id="Units" name="units">
-                </div>
-            </div>
-            <div class = "form-group row">
-                <label for="Price" class="col-sm-2 col-form-label">Price</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="number" value="0" id="Price" name="price">
-                </div>
-            </div>
-            <div class = "form-group row">
-                <label for="Tax" class="col-sm-2 col-form-label">Tax</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="number" value="0" id="Tax" name="tax">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="example-date-input" class="col-sm-2 col-form-label">Date</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input" name="date">
+                    <input class="form-control"  type="text"  id="username" name="uid">
                 </div>
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
+    </div>
     </div>
 </div>
 </body>

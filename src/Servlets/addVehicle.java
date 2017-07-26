@@ -39,9 +39,7 @@ public class addVehicle extends HttpServlet {
         try {
             date = new SimpleDateFormat("yyyy-MM-dd").parse(dt);
             od.placeOrder(new Orders(username, oId, vm, "", "", op, num, pr, tax, date));
-            RequestDispatcher rd = request.getRequestDispatcher("pages/ViewVehicle.jsp");
-            rd.forward(request, response);
-            System.out.println("after dispacher");
+            response.sendRedirect("pages/ViewVehicle.jsp");
         } catch (ParseException e) {
             e.printStackTrace();
         }

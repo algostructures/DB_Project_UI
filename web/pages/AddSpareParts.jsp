@@ -46,7 +46,7 @@
         </ul>
     </div>
     <div class = "col-sm-8">
-        <form action="AddSpare" method="post">
+        <form action="../AddSpare" method="post">
             <div class = "form-group row">
                 <label for="OrderID" class="col-sm-2 col-form-label">Order ID</label>
                 <div class="col-sm-10">
