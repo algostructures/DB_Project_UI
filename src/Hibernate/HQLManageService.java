@@ -52,6 +52,7 @@ public class HQLManageService {
 
           List vehicles = qry.list();
 
+
          tx.commit();
          return vehicles;
       }catch (HibernateException e) {
