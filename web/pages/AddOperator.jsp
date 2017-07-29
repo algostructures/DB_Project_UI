@@ -30,6 +30,36 @@
             }
         }
     </script>
+    <script>
+        var xmlhttp;
+        function f1(a1)
+        {
+            console.log(a1);
+            xmlhttp=new XMLHttpRequest();
+            xmlhttp.onreadystatechange=f2;
+            xmlhttp.open("GET","http://localhost:8080/Ajax.jsp?id1="+a1,true);
+            xmlhttp.send(null);
+            console.log("iiiiiiii");
+        }
+        function f2()
+        {
+            if(xmlhttp.readyState===4 && xmlhttp.status===200)
+            {
+                str=xmlhttp.responseText;
+                alert(str);
+                console.log(str);
+                if(str.trim()==="false") {
+                    document.getElementById("modelnum").style.display="block";
+                    document.getElementById("axy").focus();
+                    return false;
+                }
+                else {
+                    alert("model number does not exist");
+                }
+            }
+        }
+
+    </script>
 </head>
 <body>
 <nav class='navbar navbar-inverse navbar-fixed'>
@@ -63,10 +93,13 @@
     </div>
     <div class = "col-sm-8">
         <form action="../AddOperator" method="post" name="myForm">
+            <div class="form-group row">
+                <span class="glyphicon glyphicon-remove-circle" id="modelnum" style="float: left;color: #f44336;padding-bottom: 2%;display: none">Operator Already Exists!!</span>
+            </div>
             <div class = "form-group row">
                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                 <div class="col-sm-10">
-                    <input class="form-control"  type="text"  id="username" name="uid">
+                    <input class="form-control"  type="text"  id="username" name="uid" onblur=" f1(this.value)" id="axy">
                 </div>
             </div>
             <div class = "form-group row">
